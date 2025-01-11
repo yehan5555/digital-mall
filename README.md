@@ -39,21 +39,21 @@ url =http://127.0.0.1:3000/api/v1/
 项目结构
 =
 gin-mall  
-api         #用于定义接口函数，也就是controller的作用
-cache       #redis 缓存
-cmd         #程序入口  
-conf        #配置文件
-dao         # 对数据库进行操作
-doc         #文档
-logs        #日志文件
-middleware  #中间件
-model       #数据库模型
-pkg         # e 存放错误码，util 存放工具函数
-routes      #路由配置
-serializer  #将数据库序列化
-service     #接口函数的实现
-static      #存放静态文件
-
+api         #用于定义接口函数，也就是controller的作用  
+cache       #redis 缓存  
+cmd         #程序入口   
+conf        #配置文件  
+dao         # 对数据库进行操作  
+doc         #文档  
+logs        #日志文件  
+middleware  #中间件  
+model       #数据库模型  
+pkg         # e 存放错误码，util 存放工具函数  
+routes      #路由配置  
+serializer  #将数据库序列化  
+service     #接口函数的实现  
+static      #存放静态文件  
+ 
 
 
 
