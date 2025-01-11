@@ -38,21 +38,10 @@ url =http://127.0.0.1:3000/api/v1/
 
 项目结构
 =
-gin-mall
-|-- api             # 用于定义接口函数，也就是controller的作用
-|-- cmd             # 程序入口
-|-- conf            # 配置文件
-|-- doc             # 文档
-|-- middleware      # 中间件
-|-- model           # 数据库模型
-|-- pkg
-│  |-- e            # 错误码
-│  |-- util         # 工具函数
+test_mysql/ ├── dao/ │ ├── order_dao.go │ ├── user_dao.go │ └── product_dao.go ├── model/ │ ├── order.go │ ├── user.go │ └── product.go ├── pkg/ │ ├── e/ │ │ └── error.go │ └── util/ │ ├── encrypt.go │ └── logger.go ├── serializer/ │ └── response.go ├── service/ │ └── order_pay.go └── main.go
 
-├── routes          # 路由逻辑处理
-├── serializer      # 将数据序列化为 json 的函数，便于返回给前端
-├── service         # 接口函数的实现
-└── static          # 存放静态文件
+
+
 
 
 
