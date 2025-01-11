@@ -7,7 +7,7 @@ digital-mall
 
 如何测试并导入接口
 =
-![导入接口，将 doc 文件夹下的 .json 文件导入 postman 中 import 即可](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81.png)
+![导入接口，将 doc 文件夹下的 .json 文件导入 postman 中 import 即可](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%AF%BC%E5%85%A5.png)
 需要注意要改变一下环境变量
 url =http://127.0.0.1:3000/api/v1/
 对于token的话， 注册，登入即可在postman 中生成，复制到 环境变量中即可
