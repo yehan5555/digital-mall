@@ -38,6 +38,7 @@ url =http://127.0.0.1:3000/api/v1/
 
 项目结构
 =
+# 项目结构
 test_mysql/ ├── dao/ │ ├── order_dao.go │ ├── user_dao.go │ └── product_dao.go ├── model/ │ ├── order.go │ ├── user.go │ └── product.go ├── pkg/ │ ├── e/ │ │ └── error.go │ └── util/ │ ├── encrypt.go │ └── logger.go ├── serializer/ │ └── response.go ├── service/ │ └── order_pay.go └── main.go
 
 
