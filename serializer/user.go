@@ -1,7 +1,6 @@
 package serializer
 
 import (
-	"path"
 	"test_mysql/conf"
 	"test_mysql/model"
 )
@@ -26,7 +25,7 @@ func BuildUser(user *model.User) *User {
 		NickName: user.Nickname,
 		Email:    user.Email,
 		Status:   user.Status,
-		Avatar:   path.Join(conf.Host, conf.HttpPort, conf.AvatarPath, user.Avatar),
+		Avatar:   conf.Host + conf.HttpPort + conf.AvatarPath + user.Avatar,
 		CreateAt: user.CreatedAt.Unix(),
 	}
 }

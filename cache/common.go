@@ -16,7 +16,7 @@ var (
 )
 
 func init() {
-	file, err := ini.Load("config.ini")
+	file, err := ini.Load("./conf/config.ini")
 	if err != nil {
 		fmt.Println("redis config error")
 		return
@@ -30,6 +30,7 @@ func LoadRedisData(file *ini.File) {
 	RedisAddr = file.Section("redis").Key("RedisAddr").String()
 	RedisPw = file.Section("redis").Key("RedisPw").String()
 	RedisDbName = file.Section("redis").Key("RedisDbName").String()
+
 }
 
 func Redis() {

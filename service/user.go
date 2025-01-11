@@ -19,7 +19,6 @@ type UserService struct {
 	Username string `json:"user_name" form:"user_name"`
 	Password string `json:"password" form:"password"`
 	Key      string `json:"key" form:"key"` // 前端验证
-
 }
 
 type SendEmailService struct {
@@ -36,9 +35,9 @@ type ShowMoneyService struct {
 	Key string `json:"key" form:"key"`
 }
 
-func (service *UserService) Register(ctx context.Context) serializer.Response {
+func (service UserService) Register(ctx context.Context) serializer.Response {
 
-	var user model.User
+	var user *model.User
 	code := e.Success
 	if service.Key == "" || len(service.Key) != 16 {
 		code = e.Error
@@ -50,7 +49,6 @@ func (service *UserService) Register(ctx context.Context) serializer.Response {
 	}
 	//初始金额为 10000----> 密文存储 ，对称加密操作
 	util.Encrypt.SetKey(service.Key)
-
 	userDao := dao.NewUserDao(ctx)
 	_, exist, err := userDao.ExistOrNotByUsername(service.Username)
 	if err != nil {
@@ -67,13 +65,14 @@ func (service *UserService) Register(ctx context.Context) serializer.Response {
 			Msg:    e.GetMsg(code),
 		}
 	}
-	user = model.User{
+	user = &model.User{
 		Username: service.Username,
 		Nickname: service.Nickname,
 		Status:   model.Active,
 		Avatar:   "avatar.JPG",
 		Money:    util.Encrypt.AesEncoding("10000"),
 	}
+
 	//密码加密存储,如果是前端，也需要解密
 	if err = user.SetPassword(service.Password); err != nil {
 		code = e.ErrorFailEncryption
@@ -83,9 +82,15 @@ func (service *UserService) Register(ctx context.Context) serializer.Response {
 		}
 	}
 	//创建用户
-	err = userDao.CreateUser(&user)
+
+	err = userDao.CreateUser(user)
+
 	if err != nil {
 		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+		}
 	}
 	return serializer.Response{
 		Status: code,
@@ -141,7 +146,7 @@ func (service *UserService) Login(ctx context.Context) serializer.Response {
 
 // update 用户修改信息
 
-func (service UserService) Update(ctx context.Context, uId uint) serializer.Response {
+func (service *UserService) Update(ctx context.Context, uId uint) serializer.Response {
 	var user *model.User
 	var err error
 	code := e.Success
@@ -171,7 +176,7 @@ func (service UserService) Update(ctx context.Context, uId uint) serializer.Resp
 
 //post 头像更新
 
-func (service UserService) Post(ctx context.Context, uId uint, file multipart.File, fileSize int64) serializer.Response {
+func (service *UserService) Post(ctx context.Context, uId uint, file multipart.File, fileSize int64) serializer.Response {
 	code := e.Success
 	var user *model.User
 	var err error
@@ -185,6 +190,7 @@ func (service UserService) Post(ctx context.Context, uId uint, file multipart.Fi
 			Error:  err.Error(),
 		}
 	}
+
 	// 保存图片到本地函数
 	path, err := UploadAvatarToLocalStatic(file, uId, user.Username)
 	if err != nil {
@@ -225,7 +231,6 @@ func (service *SendEmailService) Send(ctx context.Context, uId uint) serializer.
 		return serializer.Response{
 			Status: code,
 			Msg:    e.GetMsg(code),
-			Error:  err.Error(),
 		}
 	}
 	noticeDao := dao.NewNoticeDao(ctx)

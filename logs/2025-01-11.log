@@ -1,0 +1,4 @@
+time="2025-01-11 16:46:47" level=info msg="strconv.ParseInt: parsing \"100\\n\": invalid syntax"
+time="2025-01-11 16:47:09" level=info msg="strconv.ParseInt: parsing \"100\\n\": invalid syntax"
+time="2025-01-11 19:42:53" level=info msg="sql: expected 2 arguments, got 3"
+time="2025-01-11 20:09:35" level=info msg="errinvalid field found for struct test_mysql/model.Favorite's field Product: define a valid foreign key for relations or implement the Valuer/Scanner interface"

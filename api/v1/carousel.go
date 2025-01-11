@@ -15,5 +15,4 @@ func ListCarousels(c *gin.Context) {
 		res := listCarousels.List(c.Request.Context())
 		c.JSON(http.StatusOK, res)
 	}
-
 }

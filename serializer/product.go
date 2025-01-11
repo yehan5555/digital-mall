@@ -39,6 +39,14 @@ func BuildProduct(item *model.Product) Product {
 		OnSale:        item.OnSale,
 		BossId:        item.BossId,
 		BossName:      item.BossName,
-		BossAvatar:    conf.Host + conf.HttpPort + conf.ProductPath + item.BossAvatar,
+		BossAvatar:    conf.Host + conf.HttpPort + conf.AvatarPath + item.BossAvatar,
 	}
+}
+
+func BuildProducts(items []*model.Product) (products []Product) {
+	for _, item := range items {
+		product := BuildProduct(item)
+		products = append(products, product)
+	}
+	return products
 }

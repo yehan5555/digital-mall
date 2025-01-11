@@ -22,14 +22,15 @@ func NewUserDaoByDB(db *gorm.DB) *UserDao {
 
 func (dao *UserDao) ExistOrNotByUsername(userName string) (user *model.User, exist bool, err error) {
 	var count int64
-	err = dao.DB.Model(&model.User{}).Where("username =?", userName).Find(&user).Count(&count).Error
-
+	err = dao.DB.Model(&model.User{}).Where("username =?", userName).Count(&count).Find(&user).Error
 	if count == 0 {
 
 		return nil, false, err
 	}
 	return user, true, nil
 }
+
+//插入数据
 
 func (dao *UserDao) CreateUser(user *model.User) error {
 	return dao.DB.Model(&model.User{}).Create(user).Error

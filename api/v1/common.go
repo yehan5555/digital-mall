@@ -2,11 +2,13 @@ package v1
 
 import (
 	"encoding/json"
+	"errors"
 	"test_mysql/serializer"
 )
 
 func ErrorResponse(err error) serializer.Response {
-	if _, ok := err.(*json.UnmarshalTypeError); ok {
+	var unmarshalTypeError *json.UnmarshalTypeError
+	if errors.As(err, &unmarshalTypeError) {
 		return serializer.Response{
 			Status: 400,
 			Data:   "JSON 类型不匹配",
