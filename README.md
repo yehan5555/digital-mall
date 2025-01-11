@@ -7,5 +7,5 @@ digital-mall
 
 如何测试并导入接口
 =
-！[导入接口](doc/导入.png)
+！[导入接口，将 doc 文件夹下的 .json 文件导入 postman 中 import 即可](doc/导入.png)
 
