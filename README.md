@@ -14,14 +14,14 @@ url =http://127.0.0.1:3000/api/v1/
 
 主要功能
 =
-用户注册登录,信息修改（jwt）
-邮箱的绑定与解绑，修改密码
-商品的发布，浏览
-购物车的加入，删除，浏览
-地址的创建，删除，删除
-订单的创建，删除
-对支付密码的对称加密
-支持事务，可以进行回滚
+用户注册登录,信息修改（jwt）  
+邮箱的绑定与解绑，修改密码   
+商品的发布，浏览   
+购物车的加入，删除，浏览   
+地址的创建，删除，删除   
+订单的创建，删除  
+对支付密码的对称加密   
+支持事务，可以进行回滚  
 
 主要依赖
 =
@@ -64,20 +64,33 @@ static      #存放静态文件
 
 postman 的一些接口演示
 =
+
+用户登录
+-
 ![用户登录](https://github.com/yehan5555/digital-mall/blob/update/doc/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.png)
- 
+
+ 创建商品
+ -
 ![创建商品](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81.png)
 
+创建地址
+-
  ![创建地址](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%88%9B%E5%BB%BA%E5%9C%B0%E5%9D%80.png)
 
+创建订单
+-
 ![创建订单](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%88%9B%E5%BB%BA%E8%AE%A2%E5%8D%95.png)
 
+创建购物车
+-
 ![创建购物车](https://github.com/yehan5555/digital-mall/blob/update/doc/%E5%88%9B%E5%BB%BA%E8%B4%AD%E7%89%A9%E8%BD%A6.png)
 
-
+搜索商品
+-
 ![搜索商品](https://github.com/yehan5555/digital-mall/blob/update/doc/%E6%90%9C%E7%B4%A2%E5%95%86%E5%93%81.png)
 
-
+验证邮箱
+-
 ![验证邮箱](https://github.com/yehan5555/digital-mall/blob/update/doc/%E9%AA%8C%E8%AF%81%E9%82%AE%E7%AE%B1.png)
 
 
