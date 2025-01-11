@@ -7,5 +7,5 @@ digital-mall
 
 如何测试并导入接口
 =
-！[导入接口](doc/digital-mall.png)
+！[导入接口](doc/导入.png)
 
